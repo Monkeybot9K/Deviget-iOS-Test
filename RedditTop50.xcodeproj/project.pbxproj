@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		7912A77B2416837400F9284E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A77A2416837400F9284E /* AppDelegate.swift */; };
 		7912A77D2416837400F9284E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A77C2416837400F9284E /* SceneDelegate.swift */; };
-		7912A77F2416837400F9284E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A77E2416837400F9284E /* ViewController.swift */; };
 		7912A7822416837400F9284E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7912A7802416837400F9284E /* Main.storyboard */; };
 		7912A7842416837600F9284E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7912A7832416837600F9284E /* Assets.xcassets */; };
 		7912A7872416837600F9284E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7912A7852416837600F9284E /* LaunchScreen.storyboard */; };
+		7912A7902416854C00F9284E /* Top50ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A78F2416854C00F9284E /* Top50ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7912A7772416837400F9284E /* RedditTop50.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditTop50.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7912A77A2416837400F9284E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7912A77C2416837400F9284E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7912A77E2416837400F9284E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7912A7812416837400F9284E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7912A7832416837600F9284E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7912A7862416837600F9284E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7912A7882416837600F9284E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7912A78F2416854C00F9284E /* Top50ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,23 @@
 		7912A7792416837400F9284E /* RedditTop50 */ = {
 			isa = PBXGroup;
 			children = (
+				7912A78E241684CB00F9284E /* ViewControllers */,
 				7912A77A2416837400F9284E /* AppDelegate.swift */,
 				7912A77C2416837400F9284E /* SceneDelegate.swift */,
-				7912A77E2416837400F9284E /* ViewController.swift */,
 				7912A7802416837400F9284E /* Main.storyboard */,
 				7912A7832416837600F9284E /* Assets.xcassets */,
 				7912A7852416837600F9284E /* LaunchScreen.storyboard */,
 				7912A7882416837600F9284E /* Info.plist */,
 			);
 			path = RedditTop50;
+			sourceTree = "<group>";
+		};
+		7912A78E241684CB00F9284E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7912A78F2416854C00F9284E /* Top50ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7912A77F2416837400F9284E /* ViewController.swift in Sources */,
+				7912A7902416854C00F9284E /* Top50ViewController.swift in Sources */,
 				7912A77B2416837400F9284E /* AppDelegate.swift in Sources */,
 				7912A77D2416837400F9284E /* SceneDelegate.swift in Sources */,
 			);
