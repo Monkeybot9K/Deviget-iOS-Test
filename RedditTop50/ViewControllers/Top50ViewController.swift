@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol SelectionDelegate {
+    func didSelectPost(withId id: String)
+}
+
 // MARK - Class Implementation
 class Top50ViewController: UIViewController {
+    var selectionDelegate: SelectionDelegate? = nil
 }
 
 // MARK - Data Source
@@ -31,6 +36,9 @@ extension Top50ViewController: UITableViewDataSource {
 // MARK - Delegate
 extension Top50ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Navigate
+        if let detailViewController = self.selectionDelegate as? PostDetailViewController {
+            detailViewController.didSelectPost(withId: "\(indexPath.row)")
+            splitViewController?.showDetailViewController(detailViewController, sender: nil)
+        }
     }
 }
