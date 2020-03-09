@@ -15,6 +15,17 @@ protocol SelectionDelegate {
 // MARK - Class Implementation
 class Top50ViewController: UIViewController {
     var selectionDelegate: SelectionDelegate? = nil
+    
+    var repository: RedditPosts!
+    var service: RedditService!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        repository = RedditPosts()
+        service = RedditService(withRedditRepository: repository)
+        service.getTop(numberOfPosts: 50)
+    }
 }
 
 // MARK - Data Source

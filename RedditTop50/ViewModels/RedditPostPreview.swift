@@ -13,13 +13,13 @@ struct RedditPostPreview {
     let description: String
     let thumbnailURL: URL?
     let posted: String
-    let numberOfComments: String
+    let numberOfComments: Int64
 }
 
 extension RedditPostPreview: RedditPostViewModel {
     static func from(redditPost: RedditPost) -> RedditPostViewModel {
-        return RedditPostPreview(title: redditPost.title,
-                                 description: redditPost.description,
+        return RedditPostPreview(title: redditPost.subreddit,
+                                 description: redditPost.title,
                                  thumbnailURL: redditPost.thumbnail,
                                  posted: "\(redditPost.creationDate())",
                                  numberOfComments: redditPost.numberOfComments)

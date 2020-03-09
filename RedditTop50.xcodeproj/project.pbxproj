@@ -19,6 +19,8 @@
 		7912A79C241691CE00F9284E /* RedditPostPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A79B241691CE00F9284E /* RedditPostPreview.swift */; };
 		7912A79E241691E600F9284E /* RedditPostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A79D241691E600F9284E /* RedditPostDetails.swift */; };
 		7912A7A02416992000F9284E /* RedditPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A79F2416992000F9284E /* RedditPostViewModel.swift */; };
+		7912A7A22416AAE900F9284E /* RedditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A7A12416AAE900F9284E /* RedditService.swift */; };
+		7912A7A42416B75B00F9284E /* RedditListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A7A32416B75B00F9284E /* RedditListing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		7912A79B241691CE00F9284E /* RedditPostPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPostPreview.swift; sourceTree = "<group>"; };
 		7912A79D241691E600F9284E /* RedditPostDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPostDetails.swift; sourceTree = "<group>"; };
 		7912A79F2416992000F9284E /* RedditPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPostViewModel.swift; sourceTree = "<group>"; };
+		7912A7A12416AAE900F9284E /* RedditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditService.swift; sourceTree = "<group>"; };
+		7912A7A32416B75B00F9284E /* RedditListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditListing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		7912A79424168FFD00F9284E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				7912A7A12416AAE900F9284E /* RedditService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				7912A7982416905C00F9284E /* RedditPost.swift */,
+				7912A7A32416B75B00F9284E /* RedditListing.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -197,6 +203,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7912A7962416901B00F9284E /* RedditPostsRepository.swift in Sources */,
+				7912A7A42416B75B00F9284E /* RedditListing.swift in Sources */,
+				7912A7A22416AAE900F9284E /* RedditService.swift in Sources */,
 				7912A7992416905C00F9284E /* RedditPost.swift in Sources */,
 				7912A79E241691E600F9284E /* RedditPostDetails.swift in Sources */,
 				7912A7A02416992000F9284E /* RedditPostViewModel.swift in Sources */,

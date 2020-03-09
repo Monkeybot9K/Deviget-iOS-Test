@@ -9,6 +9,8 @@
 import Foundation
 
 protocol RedditPostsRepository {
+    var redditPosts: [RedditPost] { get }
+    
     // Read
     func getTop() -> [RedditPostPreview]
     func getDetails(forRedditPostWithId id: String) -> RedditPostDetails?
@@ -22,7 +24,7 @@ protocol RedditPostsRepository {
 
 /// In memory Reddit Post Repository
 class RedditPosts: RedditPostsRepository {
-    private var redditPosts: [RedditPost] = []
+    private(set) var redditPosts: [RedditPost] = []
     
     // Read
     func getTop() -> [RedditPostPreview] {

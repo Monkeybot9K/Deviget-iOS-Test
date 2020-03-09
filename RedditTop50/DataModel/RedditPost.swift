@@ -8,18 +8,18 @@
 
 import Foundation
 
-class RedditPost: Codable {
+struct RedditPost: Codable {
     var id: String
     var title: String
-    var description: String
+    var subreddit: String
     var thumbnail: URL?
-    var numberOfComments: String
+    var numberOfComments: Int64
     private var created: Int64
     
     enum CodingKeys: String, CodingKey {
         case id
         case title
-        case description
+        case subreddit
         case thumbnail
         case created
         case numberOfComments = "num_comments"
