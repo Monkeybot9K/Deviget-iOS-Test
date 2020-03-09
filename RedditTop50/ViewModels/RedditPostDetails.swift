@@ -16,7 +16,7 @@ struct RedditPostDetails {
 
 extension RedditPostDetails: RedditPostViewModel {
     static func from(redditPost: RedditPost) -> RedditPostViewModel {
-        return RedditPostDetails(title: redditPost.subreddit,
+        return RedditPostDetails(title: redditPost.author,
                                  description: redditPost.title,
                                  photoURL: redditPost.thumbnail)
     }

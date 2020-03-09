@@ -21,6 +21,8 @@
 		7912A7A02416992000F9284E /* RedditPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A79F2416992000F9284E /* RedditPostViewModel.swift */; };
 		7912A7A22416AAE900F9284E /* RedditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A7A12416AAE900F9284E /* RedditService.swift */; };
 		7912A7A42416B75B00F9284E /* RedditListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A7A32416B75B00F9284E /* RedditListing.swift */; };
+		7912A7A62416C01900F9284E /* RedditPostPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A7A52416C01900F9284E /* RedditPostPreviewTableViewCell.swift */; };
+		7912A7A82416C16300F9284E /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7912A7A72416C16300F9284E /* UIImageView+Download.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		7912A79F2416992000F9284E /* RedditPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPostViewModel.swift; sourceTree = "<group>"; };
 		7912A7A12416AAE900F9284E /* RedditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditService.swift; sourceTree = "<group>"; };
 		7912A7A32416B75B00F9284E /* RedditListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditListing.swift; sourceTree = "<group>"; };
+		7912A7A52416C01900F9284E /* RedditPostPreviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPostPreviewTableViewCell.swift; sourceTree = "<group>"; };
+		7912A7A72416C16300F9284E /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			children = (
 				7912A78F2416854C00F9284E /* Top50ViewController.swift */,
 				7912A79124168A3F00F9284E /* PostDetailViewController.swift */,
+				7912A7A52416C01900F9284E /* RedditPostPreviewTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				7912A7A12416AAE900F9284E /* RedditService.swift */,
+				7912A7A72416C16300F9284E /* UIImageView+Download.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -212,6 +218,8 @@
 				7912A79C241691CE00F9284E /* RedditPostPreview.swift in Sources */,
 				7912A79224168A3F00F9284E /* PostDetailViewController.swift in Sources */,
 				7912A77B2416837400F9284E /* AppDelegate.swift in Sources */,
+				7912A7A62416C01900F9284E /* RedditPostPreviewTableViewCell.swift in Sources */,
+				7912A7A82416C16300F9284E /* UIImageView+Download.swift in Sources */,
 				7912A77D2416837400F9284E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

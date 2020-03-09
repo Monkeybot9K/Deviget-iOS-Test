@@ -11,7 +11,7 @@ import Foundation
 struct RedditPost: Codable {
     var id: String
     var title: String
-    var subreddit: String
+    var author: String
     var thumbnail: URL?
     var numberOfComments: Int64
     private var created: Int64
@@ -19,7 +19,7 @@ struct RedditPost: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case title
-        case subreddit
+        case author
         case thumbnail
         case created
         case numberOfComments = "num_comments"

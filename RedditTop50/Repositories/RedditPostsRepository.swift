@@ -12,7 +12,7 @@ protocol RedditPostsRepository {
     var redditPosts: [RedditPost] { get }
     
     // Read
-    func getTop() -> [RedditPostPreview]
+    func getPreview(atIndex index: Int) -> RedditPostPreview?
     func getDetails(forRedditPostWithId id: String) -> RedditPostDetails?
     
     // Write
@@ -27,8 +27,8 @@ class RedditPosts: RedditPostsRepository {
     private(set) var redditPosts: [RedditPost] = []
     
     // Read
-    func getTop() -> [RedditPostPreview] {
-        return redditPosts.compactMap { RedditPostPreview.from(redditPost: $0) as? RedditPostPreview }
+    func getPreview(atIndex index: Int) -> RedditPostPreview? {
+        return RedditPostPreview.from(redditPost: redditPosts[index]) as? RedditPostPreview
     }
     
     func getDetails(forRedditPostWithId id: String) -> RedditPostDetails? {
@@ -39,7 +39,7 @@ class RedditPosts: RedditPostsRepository {
     
     // Write
     func setPosts(redditPosts: [RedditPost]) {
-        
+        self.redditPosts = redditPosts
     }
 
     func markPostAsRead(redditPostId id: String) {
@@ -47,10 +47,10 @@ class RedditPosts: RedditPostsRepository {
     }
     
     func dismiss(redditPostId id: String) {
-        
+        redditPosts.removeAll { $0.id == id }
     }
     
     func dismissAll() {
-        
+        redditPosts = []
     }
 }

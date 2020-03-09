@@ -14,6 +14,8 @@ protocol SelectionDelegate {
 
 // MARK - Class Implementation
 class Top50ViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    
     var selectionDelegate: SelectionDelegate? = nil
     
     var repository: RedditPosts!
@@ -24,7 +26,22 @@ class Top50ViewController: UIViewController {
         
         repository = RedditPosts()
         service = RedditService(withRedditRepository: repository)
-        service.getTop(numberOfPosts: 50)
+        service.getTop(numberOfPosts: 50) { [weak self] (success, error) in
+            guard error == nil else {
+                let alert = UIAlertController(title: "Error",
+                                              message: "An Error ocurred while attempting to retrieve top 50 reddit posts, please try again later",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss",
+                                              style: .cancel,
+                                              handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            if success {
+                self?.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -35,11 +52,17 @@ extension Top50ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return repository.redditPosts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "RedditPostPreviewCell")!
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RedditPostPreviewCell") as? RedditPostPreviewTableViewCell,
+            let preview = repository.getPreview(atIndex: indexPath.row)
+            else { fatalError() }
+        
+        cell.setup(withRedditPostPreview: preview)
+        return cell
     }
 }
 

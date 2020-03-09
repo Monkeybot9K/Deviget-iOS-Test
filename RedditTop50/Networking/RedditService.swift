@@ -35,6 +35,8 @@ enum RedditEndpoint {
     }
 }
 
+typealias ServiceCompletionHandler = (_ success: Bool, _ error: Error?) -> ()
+
 class RedditService {
     let repository: RedditPostsRepository
     
@@ -42,7 +44,7 @@ class RedditService {
         self.repository = redditRepository
     }
     
-    func getTop(numberOfPosts: Int) {
+    func getTop(numberOfPosts: Int, completion: ServiceCompletionHandler?) {
         let endpoint = RedditEndpoint.top(postCount: 50)
         guard let url = endpoint.url else { return }
         
@@ -55,12 +57,14 @@ class RedditService {
                 
                 let listing = try JSONDecoder().decode(RedditListing.self, from: data)
                 let posts = listing.data.children.compactMap { $0.data }
-                
-                self?.repository.setPosts(redditPosts: posts)
-                print(posts)
+                                
+                DispatchQueue.main.async {
+                    self?.repository.setPosts(redditPosts: posts)
+                    completion?(true,  nil)
+                }
             } catch {
                 DispatchQueue.main.async {
-                    print(error)
+                    completion?(false,  error)
                 }
             }
 

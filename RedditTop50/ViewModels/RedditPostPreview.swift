@@ -10,7 +10,7 @@ import Foundation
 
 struct RedditPostPreview {
     let title: String
-    let description: String
+    let author: String
     let thumbnailURL: URL?
     let posted: String
     let numberOfComments: Int64
@@ -18,8 +18,8 @@ struct RedditPostPreview {
 
 extension RedditPostPreview: RedditPostViewModel {
     static func from(redditPost: RedditPost) -> RedditPostViewModel {
-        return RedditPostPreview(title: redditPost.subreddit,
-                                 description: redditPost.title,
+        return RedditPostPreview(title: redditPost.title,
+                                 author: redditPost.author,
                                  thumbnailURL: redditPost.thumbnail,
                                  posted: "\(redditPost.creationDate())",
                                  numberOfComments: redditPost.numberOfComments)
