@@ -9,15 +9,28 @@
 import UIKit
 
 class PostDetailViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    
+    var detailsProvider: RedditPostDetailsProvider!
+    private var redditPostId: String? = nil
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let id = redditPostId,
+            let details = detailsProvider.getDetails(forRedditPostWithId: id) else { return }
+        
+        userNameLabel.text = details.author
+        titleLabel.text = details.title
+        thumbnailImageView.load(fromURL: details.photoURL)
     }
 }
 
 extension PostDetailViewController: SelectionDelegate {
     func didSelectPost(withId id: String) {
-        title = "\(id) Details"
+        redditPostId = id
     }
 }

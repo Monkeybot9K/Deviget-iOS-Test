@@ -8,7 +8,11 @@
 
 import Foundation
 
-protocol RedditPostsRepository {
+protocol RedditPostDetailsProvider {
+    func getDetails(forRedditPostWithId id: String) -> RedditPostDetails?
+}
+
+protocol RedditPostsRepository: RedditPostDetailsProvider {
     var redditPosts: [RedditPost] { get }
     
     // Read

@@ -9,15 +9,15 @@
 import Foundation
 
 struct RedditPostDetails {
+    let author: String
     let title: String
-    let description: String
     let photoURL: URL?
 }
 
 extension RedditPostDetails: RedditPostViewModel {
     static func from(redditPost: RedditPost) -> RedditPostViewModel {
-        return RedditPostDetails(title: redditPost.author,
-                                 description: redditPost.title,
+        return RedditPostDetails(author: redditPost.author,
+                                 title: redditPost.title,
                                  photoURL: redditPost.thumbnail)
     }
 }

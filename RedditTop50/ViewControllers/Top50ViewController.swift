@@ -25,7 +25,6 @@ class Top50ViewController: UIViewController {
         super.viewDidLoad()
         
         // Setup Service
-        repository = RedditPosts()
         service = RedditService(withRedditRepository: repository)
         
         // Setup Refresh Control
@@ -106,7 +105,8 @@ extension Top50ViewController: UITableViewDelegate {
         if let detailViewController = self.selectionDelegate as? PostDetailViewController {
             
             // Show Post
-            detailViewController.didSelectPost(withId: "\(indexPath.row)")
+            let id = repository.redditPosts[indexPath.row].id
+            detailViewController.didSelectPost(withId: id)
             splitViewController?.showDetailViewController(detailViewController, sender: nil)
             
             // Mark as read

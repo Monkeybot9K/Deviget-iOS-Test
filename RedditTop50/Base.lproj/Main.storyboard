@@ -14,13 +14,52 @@
                     <view key="view" contentMode="scaleToFill" id="eO7-js-4gX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogL-15-OyG">
+                                <rect key="frame" x="20" y="105" width="386" height="33.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33.5" id="IPs-wJ-XkC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RUf-Qd-hRv">
+                                <rect key="frame" x="20" y="146.5" width="374" height="313.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38M-qP-f6y">
+                                <rect key="frame" x="20" y="468" width="386" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="38M-qP-f6y" firstAttribute="top" secondItem="RUf-Qd-hRv" secondAttribute="bottom" constant="8" id="6Nj-pE-d3v"/>
+                            <constraint firstItem="RUf-Qd-hRv" firstAttribute="leading" secondItem="cez-L9-P1c" secondAttribute="leading" constant="20" id="FRy-Ca-v5c"/>
+                            <constraint firstItem="RUf-Qd-hRv" firstAttribute="centerX" secondItem="cez-L9-P1c" secondAttribute="centerX" id="MpC-eU-EmC"/>
+                            <constraint firstItem="RUf-Qd-hRv" firstAttribute="top" secondItem="ogL-15-OyG" secondAttribute="bottom" constant="8" id="Nyi-hi-2gc"/>
+                            <constraint firstItem="ogL-15-OyG" firstAttribute="top" secondItem="cez-L9-P1c" secondAttribute="top" constant="17" id="dab-S8-Mdq"/>
+                            <constraint firstItem="ogL-15-OyG" firstAttribute="leading" secondItem="cez-L9-P1c" secondAttribute="leading" constant="20" id="hXK-Rt-8CA"/>
+                            <constraint firstItem="cez-L9-P1c" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="38M-qP-f6y" secondAttribute="bottom" constant="8" id="ier-xh-mcg"/>
+                            <constraint firstItem="cez-L9-P1c" firstAttribute="trailing" secondItem="ogL-15-OyG" secondAttribute="trailing" constant="8" id="kG9-PZ-GFU"/>
+                            <constraint firstItem="RUf-Qd-hRv" firstAttribute="height" secondItem="eO7-js-4gX" secondAttribute="height" multiplier="0.35" id="pQ7-ej-wIE"/>
+                            <constraint firstItem="38M-qP-f6y" firstAttribute="leading" secondItem="ogL-15-OyG" secondAttribute="leading" id="vYa-56-bXI"/>
+                            <constraint firstItem="cez-L9-P1c" firstAttribute="trailing" secondItem="RUf-Qd-hRv" secondAttribute="trailing" constant="20" id="vms-29-eVS"/>
+                            <constraint firstItem="38M-qP-f6y" firstAttribute="trailing" secondItem="ogL-15-OyG" secondAttribute="trailing" id="xxH-2J-uZT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cez-L9-P1c"/>
                     </view>
+                    <connections>
+                        <outlet property="thumbnailImageView" destination="RUf-Qd-hRv" id="KgI-xI-nC2"/>
+                        <outlet property="titleLabel" destination="38M-qP-f6y" id="Nah-2C-g7k"/>
+                        <outlet property="userNameLabel" destination="ogL-15-OyG" id="jif-wV-Tsy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPU-3L-JlN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-238" y="153"/>
+            <point key="canvasLocation" x="-239.13043478260872" y="152.67857142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6uS-Rp-bpU">
@@ -66,7 +105,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwA-0f-8Pg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwA-0f-8Pg">
                                                     <rect key="frame" x="20" y="40" width="290.5" height="55.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>

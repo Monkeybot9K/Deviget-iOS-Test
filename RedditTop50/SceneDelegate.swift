@@ -28,6 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
           else { fatalError() }
 
         masterViewController.selectionDelegate = detailViewController
+        let mainRepository = RedditPosts()
+        masterViewController.repository = mainRepository
+        detailViewController.detailsProvider = mainRepository
         splitViewController.delegate = self
     }
 }
