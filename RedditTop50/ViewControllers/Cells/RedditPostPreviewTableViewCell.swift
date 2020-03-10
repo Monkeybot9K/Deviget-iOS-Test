@@ -11,13 +11,17 @@ import UIKit
 class RedditPostPreviewTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var postedLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: UIImageView!
     
     func setup(withRedditPostPreview redditPostPreview: RedditPostPreview) {
         userNameLabel.text = redditPostPreview.author
         titleLabel.text = redditPostPreview.title
         thumbnailImageView.load(fromURL: redditPostPreview.thumbnailURL)
+        postedLabel.text = redditPostPreview.posted
+        commentsLabel.text = redditPostPreview.numberOfComments
         
         backgroundColor = redditPostPreview.read ? .systemGray : .systemBackground
     }

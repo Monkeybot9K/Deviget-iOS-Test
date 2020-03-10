@@ -94,9 +94,9 @@
 		7912A78E241684CB00F9284E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7912A7A92417F0AC00F9284E /* Cells */,
 				7912A78F2416854C00F9284E /* Top50ViewController.swift */,
 				7912A79124168A3F00F9284E /* PostDetailViewController.swift */,
-				7912A7A52416C01900F9284E /* RedditPostPreviewTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -135,6 +135,14 @@
 				7912A79F2416992000F9284E /* RedditPostViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7912A7A92417F0AC00F9284E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7912A7A52416C01900F9284E /* RedditPostPreviewTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
