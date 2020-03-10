@@ -19,7 +19,10 @@ class PostDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        refreshUI()
+    }
+    
+    func refreshUI() {
         guard let id = redditPostId,
             let details = detailsProvider.getDetails(forRedditPostWithId: id) else { return }
         
@@ -32,5 +35,9 @@ class PostDetailViewController: UIViewController {
 extension PostDetailViewController: SelectionDelegate {
     func didSelectPost(withId id: String) {
         redditPostId = id
+
+        if isViewLoaded {
+            refreshUI()
+        }
     }
 }
