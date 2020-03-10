@@ -24,8 +24,25 @@ class Top50ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup Service
         repository = RedditPosts()
         service = RedditService(withRedditRepository: repository)
+        
+        // Setup Refresh Control
+        let refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh(withControl:)), for: .valueChanged)
+        
+        // Initial Load
+        refresh(withControl: refreshControl)
+    }
+    
+    @IBAction func dismissAllButtonTapped(sender: UIBarButtonItem) {
+        repository.dismissAll()
+        tableView.reloadSections(IndexSet([0]), with: .automatic)
+    }
+
+    @objc func refresh(withControl refreshControl: UIRefreshControl) {
         service.getTop(numberOfPosts: 50) { [weak self] (success, error) in
             guard error == nil else {
                 let alert = UIAlertController(title: "Error",
@@ -39,14 +56,12 @@ class Top50ViewController: UIViewController {
             }
             
             if success {
-                self?.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    refreshControl.endRefreshing()
+                }
             }
         }
-    }
-    
-    @IBAction func dismissAllButtonTapped(sender: UIBarButtonItem) {
-        repository.dismissAll()
-        tableView.reloadSections(IndexSet([0]), with: .automatic)
     }
 }
 
