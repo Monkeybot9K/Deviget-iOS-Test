@@ -18,5 +18,7 @@ class RedditPostPreviewTableViewCell: UITableViewCell {
         userNameLabel.text = redditPostPreview.author
         titleLabel.text = redditPostPreview.title
         thumbnailImageView.load(fromURL: redditPostPreview.thumbnailURL)
+        
+        backgroundColor = redditPostPreview.read ? .systemGray : .systemBackground
     }
 }

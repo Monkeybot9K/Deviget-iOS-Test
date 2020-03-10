@@ -17,18 +17,21 @@ protocol RedditPostsRepository {
     
     // Write
     func setPosts(redditPosts: [RedditPost])
-    func markPostAsRead(redditPostId id: String)
-    func dismiss(redditPostId id: String)
+    func markPostAsRead(atIndex index: Int)
+    func dismiss(redditPostAtIndex index: Int)
     func dismissAll()
 }
 
 /// In memory Reddit Post Repository
 class RedditPosts: RedditPostsRepository {
     private(set) var redditPosts: [RedditPost] = []
+    private var readPostIds: Set<String> = []
     
     // Read
     func getPreview(atIndex index: Int) -> RedditPostPreview? {
-        return RedditPostPreview.from(redditPost: redditPosts[index]) as? RedditPostPreview
+        guard var preview = RedditPostPreview.from(redditPost: redditPosts[index]) as? RedditPostPreview else { return nil }
+        preview.read = readPostIds.contains(redditPosts[index].id)
+        return preview
     }
     
     func getDetails(forRedditPostWithId id: String) -> RedditPostDetails? {
@@ -42,12 +45,12 @@ class RedditPosts: RedditPostsRepository {
         self.redditPosts = redditPosts
     }
 
-    func markPostAsRead(redditPostId id: String) {
-        
+    func markPostAsRead(atIndex index: Int) {
+        readPostIds.insert(redditPosts[index].id)
     }
     
-    func dismiss(redditPostId id: String) {
-        redditPosts.removeAll { $0.id == id }
+    func dismiss(redditPostAtIndex index: Int) {
+        redditPosts.remove(at: index)
     }
     
     func dismissAll() {

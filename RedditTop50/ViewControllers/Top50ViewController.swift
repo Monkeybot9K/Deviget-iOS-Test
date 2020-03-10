@@ -43,6 +43,11 @@ class Top50ViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func dismissAllButtonTapped(sender: UIBarButtonItem) {
+        repository.dismissAll()
+        tableView.reloadSections(IndexSet([0]), with: .automatic)
+    }
 }
 
 // MARK - Data Source
@@ -64,15 +69,34 @@ extension Top50ViewController: UITableViewDataSource {
         cell.setup(withRedditPostPreview: preview)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            repository.dismiss(redditPostAtIndex: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Dismiss"
+    }
 }
 
 
 // MARK - Delegate
 extension Top50ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if let detailViewController = self.selectionDelegate as? PostDetailViewController {
+            
+            // Show Post
             detailViewController.didSelectPost(withId: "\(indexPath.row)")
             splitViewController?.showDetailViewController(detailViewController, sender: nil)
+            
+            // Mark as read
+            repository.markPostAsRead(atIndex: indexPath.row)
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
     }
 }

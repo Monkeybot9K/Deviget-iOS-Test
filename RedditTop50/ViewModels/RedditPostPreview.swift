@@ -14,6 +14,7 @@ struct RedditPostPreview {
     let thumbnailURL: URL?
     let posted: String
     let numberOfComments: Int64
+    var read: Bool
 }
 
 extension RedditPostPreview: RedditPostViewModel {
@@ -22,6 +23,7 @@ extension RedditPostPreview: RedditPostViewModel {
                                  author: redditPost.author,
                                  thumbnailURL: redditPost.thumbnail,
                                  posted: "\(redditPost.creationDate())",
-                                 numberOfComments: redditPost.numberOfComments)
+                                 numberOfComments: redditPost.numberOfComments,
+                                 read: false)
     }
 }

@@ -114,7 +114,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I63-bZ-atD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Top 50" id="QuK-YP-DPk"/>
+                    <navigationItem key="navigationItem" title="Top 50" id="QuK-YP-DPk">
+                        <barButtonItem key="rightBarButtonItem" title="Dismiss All" id="VG1-x8-zvZ">
+                            <connections>
+                                <action selector="dismissAllButtonTappedWithSender:" destination="A2B-Aa-lwE" id="6zW-cY-jfn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="OmQ-yP-XOC" id="pt1-wn-qwT"/>
                     </connections>
